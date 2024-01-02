@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: auto-latest
+  namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: laimage=https://crmasraf001.azurecr.io/enhanced-devops
+    argocd-image-updater.argoproj.io/laimage.update-strategy: latest
+spec:
+  project: default
+  source: 
+    repoURL: https://github.com/xokacar/auto-latest
+    path: ./auto-latest-chart
+    targetRevision: HEAD
+    helm:
+      valueFiles:
+        - ./auto-latest-chart/values.yaml
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: argocd
+  syncPolicy: 
+      automated:
+        prune: true
+        selfHeal: true
