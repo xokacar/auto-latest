@@ -1,0 +1,22 @@
+replicaCount: 3  # Change to the desired number of replicas
+
+image:
+  repository: crmasraf001.azurecr.io/enhanced-devops
+  pullPolicy: Always
+  tag: "latest"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  automount: true
+  annotations: {}
+  name: ""
+
+service:
+  type: ClusterIP
+  port: 80
+
+# Other values can remain as-is or adjust as needed.
