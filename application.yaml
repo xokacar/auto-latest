@@ -14,7 +14,7 @@ spec:
     targetRevision: HEAD
     helm:
       valueFiles:
-        - ./auto-latest-chart/values.yaml
+        - values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: argocd
