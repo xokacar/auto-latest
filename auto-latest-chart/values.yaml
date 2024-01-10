@@ -1,9 +1,12 @@
 replicaCount: 3  
 
+frontend:
+  name: backend
 image:
-  repository: crmasraf001.azurecr.io/enhanced-devops
-  pullPolicy: Always
-  tag: latest
+    name: crmasraf001.azurecr.io/enhanced-devops
+    tag: latest
+    repository: crmasraf001.azurecr.io/enhanced-devops
+    pullPolicy: Always
 
 imagePullSecrets:
   - name: acr-secret
